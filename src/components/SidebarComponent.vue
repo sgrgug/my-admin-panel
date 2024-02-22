@@ -10,8 +10,9 @@ const { toggleSidebar } = storeToRefs(useSideBar());
 </script>
 
 <template>
-    <nav class="bg-cyan-100 min-w-64 lg:w-64 absolute inset-y-0 left-0 md:relative md:-translate-x-0 transform -translate-x-full transition duration-200 ease-in-out"
-        :class="{ 'relative -translate-x-0': toggleSidebar }">
+    <nav class="bg-secondary"
+        :class="{ 'min-w-64 lg:w-64 absolute inset-y-0 left-0 md:relative md:-translate-x-0 transform -translate-x-full transition duration-200 ease-in-out': !toggleSidebar,
+        'min-w-64 lg:w-64 relative inset-y-0 left-0 md:absolute md:-translate-x-full transform -translate-x-0 transition duration-200 ease-in-out' : toggleSidebar }">
     <div class="">
         <div class="px-6 py-5 text-2xl font-bold border-b-[1px]">
             Logo
