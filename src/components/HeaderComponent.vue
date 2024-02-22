@@ -1,30 +1,41 @@
 <script setup>
-import { useSideBar } from '@/stores/sidebar';
-import { storeToRefs } from 'pinia';
-
-const { toggleSidebar } = storeToRefs(useSideBar());
-
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 </script>
 
 <template>
-    <div class="flex justify-between items-center border-b-[1px] p-2">
-        <div @click="toggleSidebar = !toggleSidebar">
-            <ion-icon name="menu"></ion-icon>
-        </div>
-        <div class="bg-green-300">
-            <form action="" class="border-2">
-                <input type="text" name="" id="">
-            </form>
-        </div>
-        <div class="flex items-center">
-            <ion-icon name="notifications"></ion-icon>
-            <ion-icon name="person"></ion-icon>
-            <div class="flex items-center">
-                <div>Sagar</div>
-                <div>Admin</div>
-            </div>
-        </div>
+  <header
+    class="sticky top-0 flex items-center justify-between border-b-[1px] border-stone-200 bg-white p-3"
+  >
+    <div>
+      <font-awesome-icon
+        class="cursor-pointer text-xl text-stone-600"
+        :icon="['fas', 'bars']"
+      />
     </div>
+    <nav>
+      <ul class="flex items-center space-x-3">
+        <li>
+          <a href="#"
+            ><font-awesome-icon
+              class="flex h-5 w-5 items-center justify-center rounded-full p-2 text-xl text-stone-600 hover:bg-stone-200"
+              :icon="['far', 'moon']"
+          /></a>
+        </li>
+        <li>
+          <a href=""
+            ><font-awesome-icon
+              class="flex h-5 w-5 items-center justify-center rounded-full p-2 text-xl text-stone-600 hover:bg-stone-200"
+              :icon="['far', 'bell']"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><div class="rounded-full bg-purple-500 p-2 text-white">SG</div></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <style scoped></style>
