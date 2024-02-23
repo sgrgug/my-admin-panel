@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 <template>
   <header
-    class="sticky top-0 flex items-center justify-between border-b-[1px] border-stone-200 bg-white p-3"
+    class="sticky top-0 flex items-center border-b-[1px] border-stone-200 bg-white p-3"
   >
     <div>
       <font-awesome-icon
@@ -12,7 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
         :icon="['fas', 'bars']"
       />
     </div>
-    <nav>
+    <nav class="flex items-center justify-between">
+      <div>asdf</div>
       <ul class="flex items-center space-x-3">
         <li>
           <a href="#"

@@ -10,7 +10,7 @@ const { toggleSidebar } = storeToRefs(useSideBar());
 <template>
   <HeaderComponent />
   <SidebarComponent />
-  <div :class="{ 'ml-60': toggleSidebar }">
+  <div :class="{ 'ml-60': !toggleSidebar, 'ml-14': toggleSidebar }">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatum
     quos ab quasi ullam adipisci dolore perferendis nostrum odit sunt voluptatem
     itaque, quidem laudantium provident! Iusto voluptas saepe rerum ex veniam?
