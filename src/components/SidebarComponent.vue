@@ -10,92 +10,61 @@ const { toggleSidebar } = storeToRefs(useSideBar());
 
 <template>
   <div
-    :class="{ 'w-60': !toggleSidebar, 'w-14': toggleSidebar }"
-    class="sidebar fixed top-0 hidden h-screen overflow-x-hidden border-r-2 border-zinc-200 bg-white transition-all duration-200 hover:w-[240px] md:block"
+    :class="{ 'w-0 md:w-60': !toggleSidebar, 'w-60 md:w-14': toggleSidebar }"
+    class="sidebar fixed top-0 z-[3] h-screen overflow-x-hidden border-r-2 border-zinc-200 bg-white transition-all duration-200 ease-in-out hover:w-[240px] md:flex md:flex-col md:justify-between"
   >
-    <div class="font-bolder flex items-center justify-between">
-      <div class="flex items-center justify-start">
-        <img class="h-20 w-20" src="../assets/img/logo.png" alt="" />
-        <div class="font-serif text-2xl font-bold italic">Makura</div>
+    <div>
+      <div class="font-bolder flex items-center justify-between">
+        <div class="flex items-center justify-start">
+          <img class="h-20 w-20" src="../assets/img/logo.png" alt="" />
+          <div class="font-serif text-2xl font-bold italic">Makura</div>
+        </div>
       </div>
-      <div
-        class="cursor-pointer text-red-500"
-        @click="toggleSidebar = !toggleSidebar"
-      >
-        <font-awesome-icon
-          v-if="!toggleSidebar"
-          :icon="['fas', 'angles-right']"
-        />
-        <font-awesome-icon
-          v-if="toggleSidebar"
-          :icon="['fas', 'angles-left']"
-        />
-      </div>
+
+      <nav>
+        <ul>
+          <RouterLink to="/">
+            <div
+              class="link active mb-1 flex items-baseline space-x-3 py-2 pl-5 text-stone-700 hover:cursor-pointer"
+            >
+              <div class="h-5 w-5">
+                <font-awesome-icon
+                  class="text-xl text-stone-700"
+                  :icon="['fas', 'house']"
+                />
+              </div>
+              <li class="px-1 text-stone-700">Home</li>
+            </div>
+          </RouterLink>
+
+          <RouterLink to="/">
+            <div
+              class="link mb-1 flex items-baseline space-x-3 py-2 pl-5 text-stone-700 hover:cursor-pointer"
+            >
+              <div class="h-5 w-5">
+                <font-awesome-icon
+                  class="text-xl text-stone-700"
+                  :icon="['far', 'user']"
+                />
+              </div>
+              <li class="px-1 text-stone-700">Profile</li>
+            </div>
+          </RouterLink>
+
+          <RouterLink to="/">
+            <div
+              class="link mb-1 flex items-baseline space-x-3 py-2 pl-5 text-stone-700 hover:cursor-pointer"
+            >
+              <font-awesome-icon
+                class="text-xl text-stone-700"
+                :icon="['fas', 'shop']"
+              />
+              <li class="px-1 text-stone-700">Store</li>
+            </div>
+          </RouterLink>
+        </ul>
+      </nav>
     </div>
-    <hr />
-    <!-- <div>
-      <RouterLink to="/">
-        <div
-          class="link active mb-1 flex items-baseline space-x-3 py-2 pl-4 text-stone-700 hover:cursor-pointer"
-        >
-          <font-awesome-icon :icon="['fas', 'house']" />
-          <span class="text-stone-700">Home</span>
-        </div>
-      </RouterLink>
-
-      <RouterLink to="/">
-        <div
-          class="link flex items-baseline space-x-3 py-2 pl-4 text-stone-700 hover:cursor-pointer"
-        >
-          <font-awesome-icon :icon="['fas', 'house']" />
-          <span class="text-stone-700">Profile</span>
-        </div>
-      </RouterLink>
-    </div> -->
-
-    <nav>
-      <ul>
-        <RouterLink to="/">
-          <div
-            class="link active mb-1 flex items-baseline space-x-3 py-2 pl-5 text-stone-700 hover:cursor-pointer"
-          >
-            <div class="h-5 w-5">
-              <font-awesome-icon
-                class="text-xl text-stone-700"
-                :icon="['fas', 'house']"
-              />
-            </div>
-            <li class="px-1 text-stone-700">Home</li>
-          </div>
-        </RouterLink>
-
-        <RouterLink to="/">
-          <div
-            class="link mb-1 flex items-baseline space-x-3 py-2 pl-5 text-stone-700 hover:cursor-pointer"
-          >
-            <div class="h-5 w-5">
-              <font-awesome-icon
-                class="text-xl text-stone-700"
-                :icon="['far', 'user']"
-              />
-            </div>
-            <li class="px-1 text-stone-700">Profile</li>
-          </div>
-        </RouterLink>
-
-        <RouterLink to="/">
-          <div
-            class="link mb-1 flex items-baseline space-x-3 py-2 pl-5 text-stone-700 hover:cursor-pointer"
-          >
-            <font-awesome-icon
-              class="text-xl text-stone-700"
-              :icon="['fas', 'shop']"
-            />
-            <li class="px-1 text-stone-700">Store</li>
-          </div>
-        </RouterLink>
-      </ul>
-    </nav>
 
     <!-- <div class="">
       <div class="border-b-[1px] px-6 py-5 text-2xl font-bold">Logo</div>
@@ -156,6 +125,21 @@ const { toggleSidebar } = storeToRefs(useSideBar());
         </RouterLink>
       </ul>
     </div> -->
+    <div>
+      <div
+        class="hidden cursor-pointer bg-blue-200 text-center text-2xl text-red-500 md:block"
+        @click="toggleSidebar = !toggleSidebar"
+      >
+        <font-awesome-icon
+          v-if="!toggleSidebar"
+          :icon="['fas', 'angles-right']"
+        />
+        <font-awesome-icon
+          v-if="toggleSidebar"
+          :icon="['fas', 'angles-left']"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

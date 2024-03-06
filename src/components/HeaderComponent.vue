@@ -1,12 +1,21 @@
 <script setup>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { useSideBar } from "@/stores/sidebar";
+import { storeToRefs } from "pinia";
+
+const { toggleSidebar } = storeToRefs(useSideBar());
+
+const cli = () => {
+  toggleSidebar.value = !toggleSidebar.value;
+  console.log(toggleSidebar.value);
+};
 </script>
 
 <template>
   <header
-    class="sticky top-0 flex items-center border-b-[1px] border-stone-200 bg-white p-3"
+    class="sticky top-0 z-[1] flex items-center justify-between border-b-[1px] border-stone-200 bg-white p-3 md:z-0"
   >
-    <div>
+    <div @click="cli">
       <font-awesome-icon
         class="cursor-pointer text-xl text-stone-600"
         :icon="['fas', 'bars']"
