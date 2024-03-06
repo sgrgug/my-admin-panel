@@ -10,7 +10,7 @@ const { toggleSidebar } = storeToRefs(useSideBar());
 <template>
   <div
     v-if="toggleSidebar"
-    class="absolute z-[2] h-screen w-screen bg-black/60 md:hidden"
+    class="fixed top-0 z-[2] h-full w-full bg-black/60 md:hidden"
     @click="toggleSidebar = !toggleSidebar"
   ></div>
   <HeaderComponent />

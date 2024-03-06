@@ -3,15 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { useSideBar } from "@/stores/sidebar";
 import { storeToRefs } from "pinia";
 import { RouterLink } from "vue-router";
+import { ref } from "vue";
 // import SGIcons from "@/components/IconComponent.vue/SGIcons.vue";
 
 const { toggleSidebar } = storeToRefs(useSideBar());
+
+const active = ref(true);
 </script>
 
 <template>
   <div
     :class="{ 'w-0 md:w-60': !toggleSidebar, 'w-60 md:w-14': toggleSidebar }"
-    class="sidebar fixed top-0 z-[3] h-screen overflow-x-hidden border-r-2 border-zinc-200 bg-white transition-all duration-200 ease-in-out hover:w-[240px] md:flex md:flex-col md:justify-between"
+    class="sidebar fixed bottom-0 top-0 z-[3] h-full overflow-x-hidden border-r-2 border-zinc-200 bg-white transition-all duration-200 ease-in-out md:flex md:flex-col md:justify-between md:hover:w-[240px]"
   >
     <div>
       <div class="font-bolder flex items-center justify-between">
@@ -66,7 +69,7 @@ const { toggleSidebar } = storeToRefs(useSideBar());
       </nav>
     </div>
 
-    <!-- <div class="">
+    <div class="">
       <div class="border-b-[1px] px-6 py-5 text-2xl font-bold">Logo</div>
       <ul class="px-6 py-5">
         <RouterLink to="/">
@@ -124,7 +127,7 @@ const { toggleSidebar } = storeToRefs(useSideBar());
           </div>
         </RouterLink>
       </ul>
-    </div> -->
+    </div>
     <div>
       <div
         class="hidden cursor-pointer bg-blue-200 text-center text-2xl text-red-500 md:block"
