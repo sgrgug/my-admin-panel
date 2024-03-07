@@ -16,7 +16,7 @@ const active = ref(true);
     :class="{ 'w-0 md:w-60': !toggleSidebar, 'w-60 md:w-14': toggleSidebar }"
     class="sidebar fixed bottom-0 top-0 z-[3] h-full overflow-x-hidden border-r-2 border-zinc-200 bg-white transition-all duration-200 ease-in-out md:flex md:flex-col md:justify-between md:hover:w-[240px]"
   >
-    <div>
+    <!-- <div>
       <div class="font-bolder flex items-center justify-between">
         <div class="flex items-center justify-start">
           <img class="h-20 w-20" src="../assets/img/logo.png" alt="" />
@@ -67,7 +67,7 @@ const active = ref(true);
           </RouterLink>
         </ul>
       </nav>
-    </div>
+    </div> -->
 
     <div class="">
       <div class="border-b-[1px] px-6 py-5 text-2xl font-bold">Logo</div>

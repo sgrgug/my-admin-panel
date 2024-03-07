@@ -4,26 +4,21 @@ import { useSideBar } from "@/stores/sidebar";
 import { storeToRefs } from "pinia";
 
 const { toggleSidebar } = storeToRefs(useSideBar());
-
-const cli = () => {
-  toggleSidebar.value = !toggleSidebar.value;
-  console.log(toggleSidebar.value);
-};
 </script>
 
 <template>
   <header
-    class="sticky top-0 z-[1] flex items-center justify-between border-b-[1px] border-stone-200 bg-white p-3 md:z-0"
+    class="sticky top-0 z-[1] flex items-center justify-start border-b-[1px] border-stone-200 bg-white p-3 md:z-0"
   >
-    <div @click="cli">
+    <div @click="toggleSidebar = !toggleSidebar">
       <font-awesome-icon
         class="cursor-pointer text-xl text-stone-600"
         :icon="['fas', 'bars']"
       />
     </div>
-    <nav class="flex items-center justify-between">
-      <div>asdf</div>
-      <ul class="flex items-center space-x-3">
+    <!-- <nav class="flex items-center justify-between">
+      <div>testing</div>
+      <ul class="flex items-center space-x-1">
         <li>
           <a href="#"
             ><font-awesome-icon
@@ -39,12 +34,28 @@ const cli = () => {
           /></a>
         </li>
         <li>
-          <a href="#"
-            ><div class="rounded-full bg-purple-500 p-2 text-white">SG</div></a
-          >
+          <a href="">
+            <div
+              class="flex h-9 w-9 items-center justify-center rounded-full p-2 text-stone-600 hover:bg-stone-200"
+            >
+              <div
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-red-400 px-1 text-white"
+              >
+                SG
+              </div>
+            </div>
+          </a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
+
+    <div
+      :class="{ 'md:ml-60': !toggleSidebar, 'md:ml-14': toggleSidebar }"
+      class="ml-0 flex w-full items-center justify-between transition-all duration-200 ease-in-out"
+    >
+      <div>1</div>
+      <div>2</div>
+    </div>
   </header>
 </template>
 

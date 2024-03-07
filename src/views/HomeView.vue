@@ -1,13 +1,28 @@
 <script setup>
+// import { ref } from "vue";
+import MessageComponent from "@/components/widget/MessageComponent.vue";
+import TabbedComponent from "@/components/widget/TabbedComponent.vue";
+import TaskCompnent from "@/components/widget/TaskCompnent.vue";
+
+// const activeTab = ref(false);
 </script>
 
 <template>
   <main>
-    <div class="text-black py-2 text-sm">Monitor</div>
-    <div class="text-black py-2 text-sm">Heartbeats</div>
-    <div class="text-black py-2 text-sm">Incidents</div>
-    <div class="text-black py-2 text-sm">Team members</div>
-    <div class="text-black py-2 text-sm">Status pages</div>
-    <div class="text-black py-2 text-sm">Integrations</div>
+    <div class="m-5">
+      <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div class="">
+          <TabbedComponent />
+        </div>
+        <div class="">
+          <TaskCompnent />
+        </div>
+        <div class="">
+          <MessageComponent />
+        </div>
+      </div>
+    </div>
   </main>
 </template>
+
+<style scoped></style>
