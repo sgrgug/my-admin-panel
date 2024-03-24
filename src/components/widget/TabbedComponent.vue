@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import CardPreset from "../preset/CardPreset.vue";
+</script>
 
 <template>
-  <div class="rounded-md border-[1px] border-gray-200 p-2">
+  <CardPreset>
     <div class="my-2 font-semibold">
       Interview Request <span class="text-stone-500">(7)</span>
     </div>
@@ -23,12 +25,12 @@
         </div> -->
       </div>
     </div>
-  </div>
+  </CardPreset>
 </template>
 
 <style scoped>
 ul li {
-  color: #7b818d;
+  color: var(--tertiary);
   cursor: pointer;
 }
 ul li:hover {

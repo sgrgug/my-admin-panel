@@ -1,9 +1,10 @@
 <script setup>
+import CardPreset from "../preset/CardPreset.vue";
 import { Icon } from "@iconify/vue";
 </script>
 
 <template>
-  <div class="rounded-md border-[1px] border-gray-200 p-2">
+  <CardPreset>
     <div class="my-2 font-semibold">
       Messages <span class="text-stone-500">(0)</span>
     </div>
@@ -13,7 +14,7 @@ import { Icon } from "@iconify/vue";
         <small>No Message</small>
       </div>
     </div>
-  </div>
+  </CardPreset>
 </template>
 
 <style scoped></style>

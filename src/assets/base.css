@@ -3,6 +3,7 @@
   --primary: #AC66CC;
   /* --secondary: #f9fafc; */
   --secondary: #f4f4f5;
+  --tertiary: #7b818d;
 
   --bg-primary: var(--primary);
   --bg-secondary: var(--secondary);
@@ -92,12 +93,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.primary {
+.primaryText {
   color: var(--primary);
 }
 
-.secondary {
+.secondaryText {
   color: var(--secondary);
+}
+
+.tertiaryText {
+  color: var(--tertiary);
 }
 
 .bg-primary {
