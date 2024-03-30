@@ -1,9 +1,7 @@
 <script setup></script>
 
 <template>
-  <button
-    class="w-fit rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-  >
+  <button class="w-fit rounded-md bg-black px-4 py-2 font-semibold text-white">
     <slot></slot>
   </button>
 </template>

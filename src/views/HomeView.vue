@@ -7,6 +7,7 @@ import CardPreset from "@/components/preset/CardPreset.vue";
 
 // Buttons
 import ActionButton from "@/components/Button/ActionButton.vue";
+import TransButton from "@/components/Button/TransButton.vue";
 
 const grossRevenue = ref(0);
 let revenue = 50590;
@@ -98,9 +99,12 @@ const interval = setInterval(() => {
           <MessageComponent />
         </div>
       </div>
+
+      <div>asfd</div>
     </div>
     <div class="m-2">
-      <ActionButton>+ Hello</ActionButton>
+      <ActionButton class="m-1">+ Hello</ActionButton>
+      <TransButton class="m-1">Cancel</TransButton>
     </div>
   </main>
 </template>
