@@ -4,7 +4,7 @@ import { useSideBar } from "@/stores/sidebar";
 import { storeToRefs } from "pinia";
 import { RouterLink } from "vue-router";
 import { ref } from "vue";
-// import SGIcons from "@/components/IconComponent.vue/SGIcons.vue";
+// import { Icon } from "@iconify/vue";
 
 const { toggleSidebar } = storeToRefs(useSideBar());
 

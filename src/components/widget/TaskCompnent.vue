@@ -59,13 +59,4 @@ import CardPreset from "../preset/CardPreset.vue";
 .task input[type="checkbox"] {
   accent-color: var(--primary);
 }
-
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
 </style>

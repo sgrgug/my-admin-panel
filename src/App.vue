@@ -2,15 +2,47 @@
 import { storeToRefs } from "pinia";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import SidebarComponent from "./components/SidebarComponent.vue";
-import { useSideBar } from "@/stores/sidebar";
 import { RouterView } from "vue-router";
+import { useSideBar } from "@/stores/sidebar";
+import { useModal } from "@/stores/modal";
+import { Icon } from "@iconify/vue";
 
+const { toggleModal } = storeToRefs(useModal());
 const { toggleSidebar } = storeToRefs(useSideBar());
-
-console.log("helo wolrd");
 </script>
 
 <template>
+  <!-- Transparent Background for modal view -->
+  <div v-if="toggleModal" class="fixed top-0 z-[4] h-screen w-full">
+    <div class="flex h-full w-full bg-slate-500/60 p-3 backdrop-blur-sm">
+      <!-- Close Div -->
+      <div
+        class="hidden h-full w-full md:block"
+        @click="toggleModal = !toggleModal"
+      ></div>
+      <!-- End Close Div -->
+
+      <div class="h-full w-[700px] overflow-hidden rounded-lg bg-white p-5">
+        <div class="flex h-[4%] items-center justify-between">
+          <div class="font-semibold">Payment Details</div>
+          <div class="cursor-pointer" @click="toggleModal = !toggleModal">
+            <Icon class="text-2xl" icon="charm:cross" />
+          </div>
+        </div>
+        <div class="my-4 h-[96%] overflow-scroll">
+          <div v-for="index in 40" :key="index">
+            <div class="m-1 rounded-sm bg-gray-100 px-3 py-1">
+              <span class="uppercase text-stone-600"
+                >{{ index }}. Merchant:
+              </span>
+              <span>Developer Merchant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- transparent background for mobile view menu -->
   <div
     v-if="toggleSidebar"

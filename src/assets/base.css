@@ -112,3 +112,13 @@ body {
 .bg-secondary {
   background-color: var(--bg-secondary);
 }
+
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}

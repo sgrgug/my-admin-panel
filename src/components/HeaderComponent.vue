@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { useSideBar } from "@/stores/sidebar";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
+import { Icon } from "@iconify/vue";
+import { useModal } from "@/stores/modal";
 
+const { toggleModal } = storeToRefs(useModal());
 const { toggleSidebar } = storeToRefs(useSideBar());
 
 // Create a new Date object for the current date
@@ -88,6 +91,13 @@ const weekDays = [
       <div>
         <nav class="flex items-center justify-between">
           <ul class="flex items-center space-x-1">
+            <li>
+              <a @click="toggleModal = !toggleModal"
+                ><Icon
+                  class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full p-2 text-2xl text-stone-600 hover:bg-stone-200"
+                  icon="pepicons-pencil:question"
+              /></a>
+            </li>
             <li>
               <a href="#"
                 ><font-awesome-icon
