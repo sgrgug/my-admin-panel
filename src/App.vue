@@ -35,7 +35,7 @@ setTimeout(() => {
         >
           <img class="h-14 w-14" src="@/assets/loading.svg" alt="" />
         </div>
-        <div v-else>
+        <div v-else class="h-full">
           <div class="flex h-[4%] items-center justify-between">
             <div class="font-semibold">Payment Details</div>
             <div class="cursor-pointer" @click="toggleModal = !toggleModal">

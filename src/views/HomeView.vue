@@ -5,6 +5,9 @@ import TabbedComponent from "@/components/widget/TabbedComponent.vue";
 import TaskCompnent from "@/components/widget/TaskCompnent.vue";
 import CardPreset from "@/components/preset/CardPreset.vue";
 
+// Buttons
+import ActionButton from "@/components/Button/ActionButton.vue";
+
 const grossRevenue = ref(0);
 let revenue = 50590;
 const interval = setInterval(() => {
@@ -95,6 +98,9 @@ const interval = setInterval(() => {
           <MessageComponent />
         </div>
       </div>
+    </div>
+    <div class="m-2">
+      <ActionButton>+ Hello</ActionButton>
     </div>
   </main>
 </template>
