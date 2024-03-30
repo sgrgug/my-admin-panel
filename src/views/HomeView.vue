@@ -5,23 +5,18 @@ import TabbedComponent from "@/components/widget/TabbedComponent.vue";
 import TaskCompnent from "@/components/widget/TaskCompnent.vue";
 import CardPreset from "@/components/preset/CardPreset.vue";
 
-// const interval = setInterval(() => {
-//   if (counter.value < 50) {
-//     counter.value = counter.value + 1;
-//   } else {
-//     clearTimeout(interval);
-//   }
-// }, 30);
-
 const grossRevenue = ref(0);
-
+let revenue = 50590;
 const interval = setInterval(() => {
-  if (grossRevenue.value < 50590) {
-    grossRevenue.value = grossRevenue.value + 4000.45;
+  if (grossRevenue.value < revenue) {
+    grossRevenue.value =
+      grossRevenue.value + revenue / 300 < revenue
+        ? grossRevenue.value + revenue / 300
+        : revenue;
   } else {
     clearTimeout(interval);
   }
-}, 30);
+}, 1);
 </script>
 
 <template>

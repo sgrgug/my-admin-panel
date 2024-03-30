@@ -2,8 +2,31 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { useSideBar } from "@/stores/sidebar";
 import { storeToRefs } from "pinia";
+import { ref } from "vue";
 
 const { toggleSidebar } = storeToRefs(useSideBar());
+
+// Create a new Date object for the current date
+const currentDate = new Date();
+
+// Format the date as 'Mar 03, 2024'
+const formattedDate = ref(
+  new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  }).format(currentDate),
+);
+
+const weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 </script>
 
 <template>
@@ -56,7 +79,10 @@ const { toggleSidebar } = storeToRefs(useSideBar());
       <div>
         <div class="hidden md:block">
           <div class="text-base font-semibold">Lokesh Gurung</div>
-          <div class="tertiaryText text-xs">Sunday, Mar 03, 2024</div>
+          <div class="tertiaryText text-xs">
+            {{ weekDays[currentDate.getDay()] }},
+            {{ formattedDate }}
+          </div>
         </div>
       </div>
       <div>
