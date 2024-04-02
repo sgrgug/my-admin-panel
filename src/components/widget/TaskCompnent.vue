@@ -8,7 +8,7 @@ import CardPreset from "../preset/CardPreset.vue";
       Task <span class="text-stone-500">(4)</span>
     </div>
     <div class="h-60 overflow-hidden hover:overflow-y-scroll">
-      <div class="task">
+      <div class="task flex items-center justify-start gap-3 p-4">
         <input type="checkbox" name="" id="label1" />
         <div class="flex flex-col">
           <label for="label1">Lorem ipsum dolor sit amet.</label>
@@ -16,7 +16,7 @@ import CardPreset from "../preset/CardPreset.vue";
         </div>
       </div>
       <hr />
-      <div class="task">
+      <div class="task flex items-center justify-start gap-3 p-4">
         <input type="checkbox" name="" id="label2" />
         <div class="flex flex-col">
           <label for="label2">Lorem ipsum dolor sit amet.</label>
@@ -24,7 +24,7 @@ import CardPreset from "../preset/CardPreset.vue";
         </div>
       </div>
       <hr />
-      <div class="task">
+      <div class="task flex items-center justify-start gap-3 p-4">
         <input type="checkbox" name="" id="label3" />
         <div class="flex flex-col">
           <label for="label3">Lorem ipsum dolor sit amet.</label>
@@ -32,7 +32,7 @@ import CardPreset from "../preset/CardPreset.vue";
         </div>
       </div>
       <hr />
-      <div class="task">
+      <div class="task flex items-center justify-start gap-3 p-4">
         <input type="checkbox" name="" id="label4" />
         <div class="flex flex-col">
           <label for="label4">Lorem ipsum dolor sit amet.</label>
@@ -44,15 +44,6 @@ import CardPreset from "../preset/CardPreset.vue";
 </template>
 
 <style scoped>
-.task {
-  cursor: pointer;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  transition: all 0.2s ease-in-out;
-}
 .task:hover {
   background-color: var(--secondary);
 }
