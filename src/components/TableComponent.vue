@@ -70,10 +70,10 @@ const OrderStatus = {
         <td class="text-center">
           <input type="checkbox" name="" :id="index" />
         </td>
-        <td>{{ row.orderID }}</td>
+        <td>#{{ row.orderID }}</td>
         <td>{{ row.cName }}</td>
         <td>{{ row.date }}</td>
-        <td>{{ row.price }}</td>
+        <td><span class="font-bold"> रु. </span>{{ row.price }}</td>
         <td>{{ row.items }}</td>
         <td>
           <span
