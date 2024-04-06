@@ -104,7 +104,9 @@ const interval = setInterval(() => {
     </div>
     <div class="m-2">
       <ActionButton class="m-1">+ Hello</ActionButton>
-      <TransButton class="m-1">Cancel</TransButton>
+      <TransButton class="m-1">
+        <template #title>Sort</template>
+      </TransButton>
     </div>
   </main>
 </template>

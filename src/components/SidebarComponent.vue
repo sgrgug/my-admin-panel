@@ -126,6 +126,13 @@ const active = ref(true);
             <li>Integrations</li>
           </div>
         </RouterLink>
+        <hr />
+        <RouterLink to="/table">
+          <div class="link my-1 flex items-center gap-4 p-2">
+            <ion-icon class="non-active-icon" name="trophy-outline"></ion-icon>
+            <li>Tables</li>
+          </div>
+        </RouterLink>
       </ul>
     </div>
     <div>
