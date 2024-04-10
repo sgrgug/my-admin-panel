@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 import TransButton from "./Button/TransButton.vue";
 import { Icon } from "@iconify/vue";
 
@@ -12,6 +12,10 @@ defineProps({
     type: Array,
     required: true,
   },
+  pagination: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // enum for the status of the order
@@ -20,6 +24,8 @@ const OrderStatus = {
   Completed: "Completed",
   Cancel: "Cancel",
 };
+
+const checkBox = ref(false);
 
 // checkbox
 </script>
@@ -47,9 +53,9 @@ const OrderStatus = {
   </div>
   <table class="w-full table-auto">
     <thead>
-      <tr>
+      <tr class="h-12">
         <th>
-          <input type="checkbox" name="" id="" />
+          <input type="checkbox" name="" id="" @click="checkBox = !checkBox" />
         </th>
         <th
           class="text-start font-semibold uppercase"
@@ -68,7 +74,12 @@ const OrderStatus = {
         :key="rowIndex"
       >
         <td class="text-center">
-          <input type="checkbox" name="" :id="index" />
+          <input
+            type="checkbox"
+            :checked="checkBox"
+            name=""
+            :id="row.orderID"
+          />
         </td>
         <td>#{{ row.orderID }}</td>
         <td>{{ row.cName }}</td>

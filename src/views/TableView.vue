@@ -339,7 +339,11 @@ const tableData = [
 <template>
   <main>
     <div class="m-2 md:m-5">
-      <TableComponent :headers="tableHeaders" :data="tableData" />
+      <TableComponent
+        :headers="tableHeaders"
+        :data="tableData"
+        :pagination="true"
+      />
     </div>
   </main>
 </template>
