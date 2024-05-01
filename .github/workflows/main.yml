@@ -1,28 +1,29 @@
-name: Upload to cPanel
+name: Deploy to cPanel
 
 on:
   push:
     branches:
-      - master  # Change to your main branch name
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Install lftp
-      run: sudo apt-get install lftp
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Zip
-      run: zip -r test.zip .
+      - name: Build Project
+        run: npm run build
 
-    - name: Execute upload script
-      run: |
-        lftp -e "set ftp:ssl-allow no; open -u ${{ secrets.CPANEL_USERNAME }},${{ secrets.CPANEL_PASSWORD }} ${{ secrets.CPANEL_HOST }}; put -O . ${{ github.workspace }}/test.zip; bye"
-    env:
-      CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
-      CPANEL_PASSWORD: ${{ secrets.CPANEL_PASSWORD }}
-      CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+      - name: Deploy to cPanel
+        uses: alex-page/cpanel-deployment-action@master
+        with:
+          cpanel_domain: ${{ secrets.CPANEL_DOMAIN }}
+          cpanel_username: ${{ secrets.CPANEL_USERNAME }}
+          cpanel_password: ${{ secrets.CPANEL_PASSWORD }}
+          cpanel_directory: public
+          local_directory: dist
