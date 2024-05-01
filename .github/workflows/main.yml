@@ -24,10 +24,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.2.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
-          local-dir: dist # Adjust this to your Vue.js build output directory
+          local-dir: dist/ # Adjust this to your Vue.js build output directory
           remote-dir: /public_html # Adjust this to your cPanel directory
