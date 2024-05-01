@@ -24,11 +24,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to cPanel
-        uses: mbezjak/cpanel-git-deploy@v1
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
         with:
-          cpanel_domain: ${{ secrets.CPANEL_HOST }}
-          cpanel_username: ${{ secrets.CPANEL_USERNAME }}
-          cpanel_password: ${{ secrets.CPANEL_PASSWORD }}
-          cpanel_directory: public
-          local_directory: dist
+          host: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          script: |
+            cd path/to/your/cpanel/directory
+            rm -rf *
+            scp -r dist .
