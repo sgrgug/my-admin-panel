@@ -76,6 +76,7 @@ const interval = setInterval(() => {
         </CardPreset>
       </div>
 
+      
       <div class="grid md:grid-cols-2 lg:grid-cols-3">
         <div class="">
           <TabbedComponent />
