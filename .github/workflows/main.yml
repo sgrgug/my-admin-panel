@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install lftp
+        run: sudo apt-get install lftp
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -24,20 +27,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to cPanel
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
-      - name: Extract cPanel credentials
-        run: echo "::set-env name=CPANEL_USER::${{ secrets.CPANEL_USERNAME }} && echo "::set-env name=CPANEL_PASSWORD::${{ secrets.CPANEL_PASSWORD }}"
-
-      - name: Deploy via cPanel API
-        uses: mbezjak/cpanel-git-deploy@v1
-        with:
-          cpanel_user: ${{ env.CPANEL_USERNAME }}
-          cpanel_password: ${{ env.CPANEL_PASSWORD }}
-          cpanel_domain: ${{ secrets.CPANEL_HOST }}
-          cpanel_directory: public
-          local_directory: dist
+      - name: Execute upload script
+        run: |
+          lftp -e "set ftp:ssl-allow no; open -u ${{ secrets.CPANEL_USERNAME }},${{ secrets.CPANEL_PASSWORD }} ${{ secrets.CPANEL_HOST }}; put -O . ${{ github.workspace }}/; bye"
+      env:
+        CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+        CPANEL_PASSWORD: ${{ secrets.CPANEL_PASSWORD }}
+        CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
