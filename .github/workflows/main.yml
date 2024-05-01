@@ -17,7 +17,7 @@ jobs:
       run: sudo apt-get install lftp
 
     - name: Zip
-      run: zip -r test.zip . -x".github" ".git"
+      run: zip -r test.zip .
 
     - name: Execute upload script
       run: |
