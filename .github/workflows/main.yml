@@ -25,10 +25,13 @@ jobs:
       run: npm run build
 
     - name: Deploy to cPanel
-      uses: gerywahyunugraha/deploy-to-cpanel@v1
+      uses: appleboy/ssh-action@master
       with:
-        cpanel_domain: ${{ secrets.CPANEL_HOST }}
-        cpanel_username: ${{ secrets.CPANEL_USERNAME }}
-        cpanel_password: ${{ secrets.CPANEL_PASSWORD }}
-        source_directory: dist  # Change this to your Vue.js build directory
-        cpanel_directory: public_html  # Change this to your cPanel directory
+        host: ${{ secrets.CPANEL_HOST }}
+        username: ${{ secrets.CPANEL_USERNAME }}
+        password: ${{ secrets.CPANEL_PASSWORD }}
+        port: 21
+        script: |
+          cd  # Change this to your cPanel directory
+          rm -rf *  # Clear existing files (if needed)
+          scp -r dist  # Copy build files to cPanel directory
