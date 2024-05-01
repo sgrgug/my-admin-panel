@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
           script: |
-            cd path/to/your/cpanel/directory
+            cd 
             rm -rf *
             scp -r dist .
