@@ -3,34 +3,32 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - master
+      - master  # Change this to your main branch name
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14  # Change this to your Node.js version
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build project
-        run: npm run build
+    - name: Build project
+      run: npm run build
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USERNAME }}
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          script: |
-            cd 
-            rm -rf *
-            scp -r dist .
+    - name: Deploy to cPanel
+      uses: gerywahyunugraha/deploy-to-cpanel@v1
+      with:
+        cpanel_domain: ${{ secrets.CPANEL_HOST }}
+        cpanel_username: ${{ secrets.CPANEL_USERNAME }}
+        cpanel_password: ${{ secrets.CPANEL_PASSWORD }}
+        source_directory: dist  # Change this to your Vue.js build directory
+        cpanel_directory: public_html  # Change this to your cPanel directory
