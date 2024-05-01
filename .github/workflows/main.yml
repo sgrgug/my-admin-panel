@@ -22,7 +22,7 @@ jobs:
       - name: Deploy to cPanel
         uses: alex-page/cpanel-deployment-action@master
         with:
-          cpanel_domain: ${{ secrets.CPANEL_DOMAIN }}
+          cpanel_domain: ${{ secrets.CPANEL_HOST }}
           cpanel_username: ${{ secrets.CPANEL_USERNAME }}
           cpanel_password: ${{ secrets.CPANEL_PASSWORD }}
           cpanel_directory: public
