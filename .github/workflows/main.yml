@@ -3,27 +3,41 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
         run: npm install
 
-      - name: Build Project
+      - name: Build project
         run: npm run build
 
       - name: Deploy to cPanel
-        uses: alex-page/cpanel-deployment-action@master
+        uses: actions/upload-artifact@v2
         with:
+          name: dist
+          path: dist
+
+      - name: Extract cPanel credentials
+        run: echo "::set-env name=CPANEL_USER::${{ secrets.CPANEL_USERNAME }} && echo "::set-env name=CPANEL_PASSWORD::${{ secrets.CPANEL_PASSWORD }}"
+
+      - name: Deploy via cPanel API
+        uses: mbezjak/cpanel-git-deploy@v1
+        with:
+          cpanel_user: ${{ env.CPANEL_USERNAME }}
+          cpanel_password: ${{ env.CPANEL_PASSWORD }}
           cpanel_domain: ${{ secrets.CPANEL_HOST }}
-          cpanel_username: ${{ secrets.CPANEL_USERNAME }}
-          cpanel_password: ${{ secrets.CPANEL_PASSWORD }}
           cpanel_directory: public
           local_directory: dist
