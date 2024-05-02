@@ -123,7 +123,7 @@ const active = ref(true);
         <RouterLink to="/">
           <div class="link my-1 flex items-center gap-4 p-2">
             <ion-icon class="non-active-icon" name="trophy-outline"></ion-icon>
-            <li>Integrations</li>
+            <li>Integration</li>
           </div>
         </RouterLink>
         <hr />
